@@ -1,0 +1,28 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "Product Search project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Georgios Iliadis",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+	"ejs": "latest",
+	"aws-sdk": "latest",
+	"body-parser": "latest",
+    "angular-svg-round-progressbar": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.2.1",
+    "nodemon": "^1.18.6",
+    "promise": "^8.0.2",
+    "pug": "^2.0.3",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {}
+}

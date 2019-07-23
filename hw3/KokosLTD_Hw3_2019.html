@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Snowboard</title>        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    
+body{
+    overflow-x: hidden;
+    width: 650px;
+    }
+.intro {
+  /*height: 10000px;*/
+  overflow: hidden;
+  width:650px;
+  position: relative;
+  text-align: center;
+  color: white;
+  /*margin: auto;--------------------*/
+  margin-left:300px;
+  margin-right:300px;
+  /*object-fit:fill; 
+    border: 1px solid blue; 
+    background-attachment: fixed;*/
+}
+
+.photoUno{
+    margin-left:0px;
+    margin-right:0px;
+    background: transparent;
+    height:550px;
+    width:650px;
+    background-image: url(http://csci571.com/hw/hw3/images/snow1.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:860px 580px;
+    background-position: 220px 0px;
+    filter: brightness(95%);
+    margin-top:-10px;
+    /*filter: brightness(95%);
+    margin-top:-10px;
+    background-position: transparent;
+    DAME OI ALLAGES
+    background-size:cover;
+    background-size:900px 600px;
+    background-position: center;*/
+    
+}
+  
+.header {
+  /*border: 2px dashed black;*/
+  width:600px;
+  position: absolute;
+  top: 0px;
+  left: 25px;
+  right: 25px;
+  font-weight: bold;
+}
+    
+.header h3{
+    float:left;
+    padding-top:2px;
+    padding-left:10px;
+    font-weight:bold;
+    font-family: "Core Sans G 75 ExtraBold","Futura PT Heavy","Faxfont Standard", Times, sans-serif;
+}
+
+.header h3 a{
+    font-family: "Core Sans G 75 ExtraBold","Futura PT Heavy","Faxfont Standard", Times, sans-serif;
+    text-decoration: none;
+    color:white;
+}
+    
+.header ul{
+    /*position: absolute;*/
+    /*padding:10px 10px;*/
+    /*overflow: hidden;*/
+    float:left;
+    font-size: 12px;
+    list-style-type:none;
+    text-decoration: none;
+    
+}
+
+.header ul li{
+    /*float:left;*/
+    display: inline;
+}
+
+.header li a{
+    padding: 10px 12px; 
+    text-decoration: none;
+    line-height: 40px;
+    width:40px;
+    color:white;
+}
+
+#introduction {
+  position: absolute;
+  top: 70px;
+  margin-left:40px;
+  margin-right:40px;
+}
+
+#introduction p{
+    padding-left:90px;
+    padding-right:90px;
+}
+
+#introduction h2{
+    font-size:65px;
+    padding-left:140px;
+    padding-right:140px;
+    padding-bottom: 100px;
+    height:20px;
+    font-weight: bold;
+    text-align: center; 
+}
+
+#button1{
+    
+    height: 30px;
+    font-size:9px;
+    background-color: white;
+    font-weight: bold;
+    width:110px;
+    /*
+    position: absolute;
+    width:20%;
+    margin-left: 40%;
+    margin-right: 40%
+    */
+    
+}
+
+.fourimages {
+  width:600px;
+  float:center;
+  margin-top: 25px;
+  margin-left:25px;
+  overflow: hidden;
+  /*height:auto; 690px*/
+}
+
+#para{
+    color: #7D7D7D;
+    float:center;
+    font-family: "Faxfont Fine","Faxfont Standard", Times, sans-serif;
+    text-align: left;
+    font-size: 11px;
+    padding-left: 130px;
+    padding-right: 120px;
+}
+
+#parag{
+    margin-top:590px;
+    /*border: 5px solid black;*/
+}
+
+#snow2{
+    float:left;
+    width:400px;
+    height:280px;
+/*    transform: scale(1);*/
+    position: relative;
+    right:70px;
+}
+
+#snow3{
+    float:right;
+    width:400px;
+    height:280px;
+/*    transform: scale(1);*/
+    position: relative;
+    right:-70px;
+}
+
+#snow4{
+    float:left;
+    width:400px;
+    height:280px;
+/*    transform: scale(1);*/
+    position: relative;
+    right:70px;  
+}
+    
+#snow5{
+    float:right;
+    width:400px;
+    height:280px;
+/*    transform: scale(1);*/
+    position: relative;
+    right:-70px; 
+}
+    
+#s2{
+    float:left;
+    width:270px;
+    height:270px;
+    margin-top:10px;
+    overflow:hidden;
+    position:relative;
+    left:25px;
+}
+    
+#s3{
+    float:right;
+    width:270px;
+    height:270px;
+    margin-top:10px;
+    overflow:hidden;
+    position:relative;
+    left:-25px; 
+}
+    
+#s4{
+    float:left;
+    width:270px;
+    height:270px;
+    margin-top:10px;
+    overflow:hidden;
+    position:relative;
+    left:25px; 
+}
+    
+#s5{
+    float:right;
+    width:270px;
+    height:270px;
+    margin-top:10px;
+    overflow:hidden;
+    position:relative;
+    left:-25px; 
+}
+    
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+    
+.intro i{
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 10px;
+}
+    
+.centered {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+    
+#final{
+    top:40px;
+    width:650px;
+    height: 650px;
+    overflow:hidden;
+    position:relative;
+}
+    
+#laast{
+    position:relative;
+    top:-275px;
+    margin-left:150px;
+    width:350px;
+}
+
+#laast2{
+    color:#E4E9EC;
+    font-family: "Proxima Nova Medium", sans-serif;
+    font-size:13px;
+    text-align: center;
+}
+    
+#teleu{
+    height:550px;
+    width:650px;
+    background-image: url("http://csci571.com/hw/hw3/images/snow6.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:860px 580px;
+    background-position: 190px -50px;
+    filter: brightness(90%);  
+/*
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:860px 580px;
+    background-position: 220px 0px;
+    filter: brightness(95%);
+    margin-top:-10px;
+*/
+}
+</style>
+</head>
+<body>
+
+
+<!-- intro like container -->
+  <div class="intro">
+    <div class="photoUno"></div>
+    <div class="header">
+        <h3><a href="#">SNOWBOARD CENTRAL</a></h3>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div id="introduction">
+            <h2>Bend the Mind</h2>
+            <p>James Jantz is a snowboarder living in Jackson Hole, WY and riding around the world. Lorem ipsum dolor sit amet consectetuer adipiscing wlit nam nibh. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet.</p>
+            <button id="button1">LEARN MORE</button>
+            <div class="centered"><i class="down"></i></div>
+    </div>
+  
+    <div class="fourimages">
+        <!--
+        1)Div gia kathe mia
+        2)transform scale (1.2) gia kathe image(#snow3{})     
+        3).div{
+        overflow = hidden.
+        }
+            -->
+        <div id="s2">
+            <img src= "http://csci571.com/hw/hw3/images/snow2.jpg" alt="snow2" id="snow2"></div>
+        <div id="s3">
+            <img src= "http://csci571.com/hw/hw3/images/snow3.jpg" alt="snow3" id="snow3"></div>
+        <div id="s4">
+            <img src= "http://csci571.com/hw/hw3/images/snow4.jpg" alt="snow4" id="snow4"></div>
+        <div id="s5">
+            <img src= "http://csci571.com/hw/hw3/images/snow5.jpg" alt="snow5" id="snow5"></div>
+        <div id="parag"></div>
+            <p id="para">Lorem ipsum dolor sit amet consectetuer adipiscing elit nam nibh. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo. Nunc nec mi eu justo tempor consectetuer. Etiam vitae nisl. In dignissim lacus ut ante.
+        <br /> <br /> Photography courtesy of Carl Sutter.</p></div>
+        <div id="final">
+            <div id="teleu">
+            </div>
+            <div id="laast">
+                <p id="laast2">Lorem ipsum dolor sit amet consectetuer adipiscing elit nam nibh. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet.</p>
+            </div>
+        </div>
+    </div>
+    
+  

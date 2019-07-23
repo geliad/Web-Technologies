@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework</title>
+	<meta charset="utf-8" >
+</head>
+<style>
+#header{
+    text-align:center; 
+    margin-top: 150px;'
+}  
+#inpu{
+    margin: auto; 
+    display: block;
+}
+/*
+#yo{
+    width:410px;
+}
+    width:60px to prwto column
+*/
+
+</style>
+<body>
+    <h1 id="header">Enter URL for Highest-grossing films List JSON File </h1>
+
+    <form name="myform" method="POST" id="location">
+
+    <input type="text" name="URL" maxlength="255" size="30"
+    value="filmslist.json" id="inpu"/>
+        
+    <br />
+        
+    <input type="button" name="submit" value="Submit Query"
+    onClick="viewJSON(this.form)" style ='margin: auto; 
+    display: block;  '/>
+    </form>
+    
+    
+    
+<script>
+    
+function viewJSON(what){
+    var URL = what.URL.value;
+    function loadJSON(url) {
+        //-------------------if me to XMLHTTPRequest.
+        if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } 
+        else {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+        }
+        xmlhttp.open("GET",url,false); // "synchronous"
+        
+        try{
+            xmlhttp.send(null);
+        }
+        catch(Exception){
+             if(Exception.name=="NetworkError"){
+                 alert("Error: JSON File not found.");
+             }   
+        }
+        //------------------if statment me to JSON.parse
+        //jsonObj= JSON.parse(xmlhttp.responseText);
+        //return jsonObj;
+        
+        
+        //if json file exists                  
+        var go = true;
+        if (xmlhttp.status == 404){
+            alert("Error: JSON File not found.");
+            go = false;
+        }
+        
+        if(go == true){
+            jsonObj= JSON.parse(xmlhttp.responseText);
+            return jsonObj;
+        }
+        return;
+        
+    }
+    jsonObj = loadJSON(URL);
+
+    var go2 = true;    
+
+    if(typeof(jsonObj.Mainline.Table.Row) ==="undefined"){
+        alert("ERROR: JSON file does not contain film entries!");
+        go2=false;
+    }
+    
+    if(go2 == true){
+    if (window.ActiveXObject){  //if IE, simply execute script (due to async prop).
+        if (jsonObj.parseError.errorCode != 0) {
+            var myErr = jsonObj.parseError;
+            generateError(jsonObj);
+            hWin = window.open("", "Error", "height=300,width=340");
+            hWin.document.write(html_text);
+        } 
+        else{ 
+            generateHTML(jsonObj);
+            hWin = window.open("", "Assignment4", "height=800,width=1023");
+            hWin.document.write(html_text); 
+        }
+    } 
+    else { //else if FF, execute script once JSON object has loaded
+        jsonObj.onload=generateHTML(jsonObj);
+        hWin = window.open("", "Assignment4", "height=800,width=1023");
+        hWin.document.write(html_text); 
+    } 
+    hWin.document.close(); 
+    }
+}
+    
+    
+    
+function generateHTML(jsonObj) {
+    root=jsonObj.DocumentElement;
+    html_text="<html><head><title>JSON Parse Result</title></head><body>";
+    html_text+="<table border='2'>";
+    //caption=jsonObj.catalog.title;
+    //html_text+="<caption align='left'><h1>"+caption+"</h1></caption>";
+    
+    //planes=jsonObj.catalog.aircraft; // an array of planes
+    movies = jsonObj.Mainline.Table.Row; // an array of movies
+    
+    //planeNodeList=planes[0];
+    moviesNodeList = movies[0];
+    
+    html_text+="<tbody>";
+    html_text+="<tr>";
+//    widt=120; heigh=200;
+    
+    // output the headers
+  
+    var header_keys = jsonObj.Mainline.Table.Header.Data;
+    for(i=0;i<header_keys.length;i++) {
+        header=header_keys[i];
+        if(i == 0){header = "Title";}
+        if(i == 1){header = "Year";}
+        if(i == 2){header = "Info";}
+        if(i == 3){header = "Worldwide Gross";}
+        if(i == 4){header = "Wiki Page";}
+        if(i == 5){header = "Logo";}
+        
+        
+        //if(header=="Title") { header="Title"; x=120; y=55; }
+        //if(header=="Boeing") { header="Family"; x=100; y=67; }
+        //if(header=="Year") header="Year";
+        //if(header=="Info") header="Info";
+        //if(header=="Worldwide Gross") header="Worldwide Gross";
+        //if(header=="Wiki Page") header="Wiki Page";
+        //if(header=="Logo") header="Logo";
+        html_text+="<th>"+header+"</th>";
+    }
+    
+    html_text+="</tr>";
+    
+    
+//output out the values
+//TODO: if statement se oulla an en blank, vallw blank
+    // movies = jsonObj.Mainline.Table.Row
+    for(i=0; i<movies.length; i++) {
+        moviesNodeList = movies[i]; //get properties of a movie (an object)
+        html_text+="<tr>"; //start a new row of the output table
+        
+        var aircraft_keys = Object.keys(moviesNodeList);
+        //Ta keys, Title, Year, Hubs
+        
+        for(j=0; j < aircraft_keys.length; j++) {
+            prop = aircraft_keys[j];
+            //dame piannw ena ena key-> Title, Year,Hubs..
+          
+            
+            if(aircraft_keys[j] == "Hubs"){
+                var x= "";
+                if(moviesNodeList.Hubs.Hub.length == 0){
+                    html_text+= "<td>" + x + "</td>";
+                }
+                else{
+                    for(z=0; z<moviesNodeList.Hubs.Hub.length; z++){
+                        var write = moviesNodeList.Hubs.Hub[z];
+                        if(z == 0){
+                            x += "<ul>" + "<li>"+ "<b>" + write + "</b>" + "</li>";
+                        }
+                        if(z!=0){
+                            x += "<li>" + write + "</li>";
+                        }
+                        if(z == moviesNodeList.Hubs.Hub.length-1){
+                            x+= "</ul>";
+                            html_text += "<td>"+ x + "</td>";
+                        }
+                    }
+                }
+            }
+            
+            else if(aircraft_keys[j] == "HomePage"){
+                var istoselida = moviesNodeList[aircraft_keys[j]];
+                
+                html_text +="<td style='width:405px;'><a href= "+istoselida+"> "+istoselida+" </a></td>";
+                //410px
+                
+            }
+            
+            else if(aircraft_keys[j] == "Logo") { 
+                if(moviesNodeList.Logo.length == 0){
+                    html_text+= "<td>" +"<br>"+ "</td>";
+                }
+                else{
+                html_text+="<td><img src='"+ moviesNodeList[aircraft_keys[j]] + "' width=120px'" + "' height=200px'" + "'></td>";
+                }
+            } 
+            
+            else if(aircraft_keys[j] == "Title"){
+                html_text+="<td style='width:60px;'>"+ moviesNodeList[prop] +"</td>";
+            }
+            
+            
+            else {
+                html_text+="<td>"+ moviesNodeList[prop] +"</td>";
+            }
+        }
+        html_text+="</tr>";
+    }
+//}
+    
+    html_text+="</tbody>";
+    html_text+="</table>";
+    html_text+="</body></html>";
+    
+}
+
+</script>    
+    
+    
+</body>
+    
+</html>
